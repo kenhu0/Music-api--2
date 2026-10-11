@@ -1,11 +1,9 @@
-from pathlib import Path
 import re
 from yt_dlp import YoutubeDL
+from config import DOWNLOAD_DIR
 from .cookies import cookie_options
 from .yt_dlp_options import js_runtime_options
 
-DOWNLOAD_DIR = Path("downloads")
-DOWNLOAD_DIR.mkdir(exist_ok=True)
 VIDEO_ID_PATTERN = re.compile(r"^[A-Za-z0-9_-]{11}$")
 
 

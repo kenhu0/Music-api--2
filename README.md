@@ -187,6 +187,22 @@ uvicorn app:app --host 0.0.0.0 --port 8000
 Railway deploys new commits from the connected branch automatically. Check
 the service's deployment logs if the build or startup fails.
 
+### Deploy to Vercel from GitHub
+
+1. Import this repository into Vercel and keep the project root set to the
+   repository root.
+2. Vercel uses `vercel_app.py` as the FastAPI entry point, configured in
+   `pyproject.toml`. The root `requirements.txt` lists the Python dependencies.
+3. For YouTube search, streaming, playback, song details, and downloads, add
+   `YOUTUBE_COOKIES` as a private Vercel environment variable containing a
+   valid Netscape-format cookie file. Do not commit or share cookie contents.
+4. Redeploy after saving the environment variable. The API root and docs are
+   available at `/` and `/docs`.
+
+Vercel functions have temporary writable storage only. The API uses `/tmp` for
+SQLite, cache, logs, and downloaded audio when running on Vercel; files there
+are not durable across function instances or deployments.
+
 API:
 
 ```
