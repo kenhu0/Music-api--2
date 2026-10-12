@@ -15,6 +15,3 @@ dependencies = [
     "uvicorn>=0.54.0",
     "yt-dlp[default]>=2026.8.19",
 ]
-
-[tool.vercel]
-entrypoint = "vercel_app:app"
